@@ -14,6 +14,10 @@ public class IngredientDAO extends BaseDAO{
 		return find("SELECT * FROM INGREDIENTEN");
 	}
 	
+	public List<Ingredient> findByName(String name){
+		return find("SELECT * FROM ingredienten where upper(naam) like '%" + name.toUpperCase()  + "%'");
+	}
+	
 	public List<Ingredient> find(String query){
 		List<Ingredient> ingredienten = new ArrayList<Ingredient>();
 		try(Connection conn = super.getConnection()){

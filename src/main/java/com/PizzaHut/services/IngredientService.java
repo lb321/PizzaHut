@@ -31,4 +31,8 @@ public class IngredientService {
 	public boolean updateIngredient(Ingredient newIngredient){
 		return id.updateIngredient(newIngredient);
 	}
+
+	public List<Ingredient> findByName(String name) {
+		return id.findByName(name);
+	}
 }
