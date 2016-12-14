@@ -18,6 +18,10 @@ public class Ingredient {
 	public double getPrijs(){
 		return prijs;
 	}
+	
+	public void setPrijs(double prijs){
+		this.prijs = prijs;
+	}
 
 	@Override
 	public String toString() {

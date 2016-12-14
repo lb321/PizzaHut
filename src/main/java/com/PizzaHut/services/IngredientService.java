@@ -19,4 +19,16 @@ public class IngredientService {
 	public boolean addIngredient(Ingredient ingredient){
 		return id.addIngredient(ingredient);
 	}
+	
+	public boolean deleteIngredient(Ingredient ingredient){
+		return deleteIngredient(ingredient.getName());
+	}
+	
+	public boolean deleteIngredient(String ingredientName){
+		return id.deleteIngredient(ingredientName);
+	}
+	
+	public boolean updateIngredient(Ingredient newIngredient){
+		return id.updateIngredient(newIngredient);
+	}
 }

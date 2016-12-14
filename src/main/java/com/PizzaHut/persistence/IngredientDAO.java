@@ -43,11 +43,35 @@ public class IngredientDAO extends BaseDAO{
 		return i;
 	}
 	
+	public boolean deleteIngredient(String ingredientName){
+		boolean result = false;
+		try(Connection conn = super.getConnection()){
+			Statement stmt = conn.createStatement();
+			stmt.execute("DELETE FROM ingredienten WHERE naam = '" + ingredientName + "'");
+			result = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public boolean addIngredient(Ingredient ingredient){
 		boolean result = false;
 		try(Connection conn = super.getConnection()){
 			Statement stmt = conn.createStatement();
 			stmt.execute("INSERT INTO ingredienten VALUES ('" + ingredient.getName() + "', " + ingredient.getPrijs() + ")");
+			result = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public boolean updateIngredient(Ingredient newIngredient){
+		boolean result = false;
+		try(Connection conn = super.getConnection()){
+			Statement stmt = conn.createStatement();
+			stmt.execute("UPDATE ingredienten SET prijs = " + newIngredient.getPrijs() + " WHERE naam = '" + newIngredient.getName()+ "'"); 
 			result = true;
 		}catch(Exception e){
 			e.printStackTrace();
