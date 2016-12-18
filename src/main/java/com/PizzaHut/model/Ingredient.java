@@ -11,6 +11,10 @@ public class Ingredient {
 		this.prijs = prijs;
 	}
 	
+	public Ingredient() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName(){
 		return name;
 	}

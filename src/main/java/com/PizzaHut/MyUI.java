@@ -35,19 +35,33 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     	final VerticalLayout layout = new VerticalLayout();
-    	
+    	layout.setSpacing(true);
     	filterText.setInputPrompt("filter by name...");
     	filterText.addTextChangeListener(e -> {
     	    grid.setContainerDataSource(new BeanItemContainer<>(Ingredient.class,
     	            ServiceProvider.getIngredientService().findByName(e.getText())));
     	});
-        HorizontalLayout main = new HorizontalLayout(grid, iForm);
+    	grid.addSelectionListener(event -> {
+    	    if (event.getSelected().isEmpty()) {
+    	    	iForm.setVisible(false);
+    	    } else {
+    	    	Ingredient ingredient = (Ingredient) event.getSelected().iterator().next();
+    	        iForm.setIngredient(ingredient);
+    	    }
+    	});
+    	Button addCustomerBtn = new Button("Add new Ingredient");
+    	addCustomerBtn.addClickListener(e -> {
+    	    grid.select(null);
+    	    
+    	    iForm.setIngredient(new Ingredient());
+    	});
+    	HorizontalLayout toolbar = new HorizontalLayout(filterText, addCustomerBtn);
+    	toolbar.setSpacing(true);
+        HorizontalLayout main = new HorizontalLayout(grid,iForm);
         main.setSpacing(true);
         main.setSizeFull();
-        //grid.setSizeFull();
-        main.setExpandRatio(grid, 1);
-
-        layout.addComponents(filterText, main);
+        grid.setSizeFull();
+        layout.addComponents(toolbar, main);
         // fetch list of Customers from service and assign it to Grid
         updateList();
         layout.setMargin(true);
