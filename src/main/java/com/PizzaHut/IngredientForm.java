@@ -17,10 +17,11 @@ public class IngredientForm extends IngredientFormDesign {
 		delete.addClickListener(e->this.delete());
 	}
 	
-	
 	public void setIngredient(Ingredient ingredient){
 		this.ingredient = ingredient;
 		BeanFieldGroup.bindFieldsUnbuffered(ingredient, this);
+		name.setEnabled(false);
+		name.setEnabled(true);
 	    setVisible(true);
 	}
 	
@@ -39,5 +40,4 @@ public class IngredientForm extends IngredientFormDesign {
 	    myUi.updateList();
 	    setVisible(false);
 	}
-
 }

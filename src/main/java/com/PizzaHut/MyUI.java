@@ -52,7 +52,6 @@ public class MyUI extends UI {
     	Button addCustomerBtn = new Button("Add new Ingredient");
     	addCustomerBtn.addClickListener(e -> {
     	    grid.select(null);
-    	    
     	    iForm.setIngredient(new Ingredient());
     	});
     	HorizontalLayout toolbar = new HorizontalLayout(filterText, addCustomerBtn);
