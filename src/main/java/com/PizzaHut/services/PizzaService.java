@@ -15,4 +15,12 @@ public class PizzaService {
 	public boolean addPizza(Pizza pizza){
 		return pd.addPizza(pizza);
 	}
+	
+	public boolean deletePizza(Pizza pizza){
+		return deletePizza(pizza.getId());
+	}
+	
+	public boolean deletePizza(int id){
+		return pd.deletePizza(id);
+	}
 }

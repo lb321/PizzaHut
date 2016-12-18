@@ -32,11 +32,23 @@ public class PizzaDAO extends BaseDAO{
 		return pizzas;
 	}
 	
+	public boolean deletePizza(int id){
+		boolean result = false;
+		try(Connection conn = super.getConnection()){
+			Statement stmt = conn.createStatement();
+			stmt.executeQuery("DELETE FROM pizzas WHERE id = " + id);
+			result = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public Pizza getPizzaByID(int id){
 		Pizza pizza = null;
 		try(Connection conn = super.getConnection()){
 			Statement stmt = conn.createStatement();
-			ResultSet result = stmt.executeQuery("SELECT * FROM Pizzas WHERE id = '" + id + "'");
+			ResultSet result = stmt.executeQuery("SELECT * FROM Pizzas WHERE id = " + id);
 			while(result.next()){
 				if (pizza == null){
 					pizza = new Pizza(id);
