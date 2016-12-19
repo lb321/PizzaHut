@@ -23,4 +23,8 @@ public class PizzaService {
 	public boolean deletePizza(int id){
 		return pd.deletePizza(id);
 	}
+	
+	public Pizza getPizzaByID(int id){
+		return pd.getPizzaByID(id);
+	}
 }

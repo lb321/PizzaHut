@@ -23,8 +23,8 @@ public class PizzaView extends TestView implements View{
 	    grid.removeColumn("ingredienten");
 	    grid.addSelectionListener(event -> {
 	    	//System.out.println("hallo! " + ((Pizza)event.getSelected().iterator().next()));
-	    	UI.getCurrent().getSession().setAttribute("pizza", ((Pizza)event.getSelected().iterator().next()));
-	    	System.out.println(UI.getCurrent().getSession().getAttribute("pizza"));
+	    	UI.getCurrent().getSession().setAttribute("pizza", ((Pizza)event.getSelected().iterator().next()).getId());
+	    	UI.getCurrent().getNavigator().navigateTo("PizzaIngredienten");
 	    });
 	    addComponent(grid);
 	}

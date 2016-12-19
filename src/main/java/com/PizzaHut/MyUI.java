@@ -46,6 +46,7 @@ public class MyUI extends UI {
         navigator.addView("Ingredienten", new IngredientView());
         navigator.addView("new", new NewView());
         navigator.addView("Pizzas", new PizzaView());
+        navigator.addView("PizzaIngredienten", new PizzaIngredienten());
         layout.addComponents(viewContainer);
         layout.setMargin(true);
         setContent(layout);

@@ -27,6 +27,7 @@ public class TestView extends VerticalLayout implements View{
 		menuBar.addItem("Ingredienten", mycommand);
 		menuBar.addItem("new", mycommand);
 		menuBar.addItem("Pizzas", mycommand);
+		menuBar.addItem("PizzaIngredienten", mycommand);
 		addComponents(menuBar);
 	}
 
