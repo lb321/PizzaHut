@@ -49,6 +49,7 @@ public class MyUI extends UI {
     	        iForm.setIngredient(ingredient);
     	    }
     	});
+    	iForm.setVisible(false);
     	Button addCustomerBtn = new Button("Add new Ingredient");
     	addCustomerBtn.addClickListener(e -> {
     	    grid.select(null);

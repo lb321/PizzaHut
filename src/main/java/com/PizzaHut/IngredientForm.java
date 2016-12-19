@@ -20,8 +20,9 @@ public class IngredientForm extends IngredientFormDesign {
 	public void setIngredient(Ingredient ingredient){
 		this.ingredient = ingredient;
 		BeanFieldGroup.bindFieldsUnbuffered(ingredient, this);
-		name.setEnabled(false);
-		name.setEnabled(true);
+		if(ingredient.getName() != null){
+			name.setEnabled(false);
+		}
 	    setVisible(true);
 	}
 	
