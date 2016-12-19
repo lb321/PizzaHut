@@ -9,14 +9,21 @@ import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 
 public class PizzaIngredienten extends TestView implements View{
 	private Label pname;
 	private Pizza pizza;
 	private Grid grid;
 	public PizzaIngredienten() {
+		VerticalLayout layout = new VerticalLayout();
+		layout.setSpacing(true);
+		layout.setMargin(true);
 		pname = new Label("Pizza: ");
+		pname.setStyleName("h3");
 		grid = new Grid();
+		layout.addComponents(pname, grid);
+		addComponent(layout);
    	}
 	
 	@Override
@@ -28,7 +35,6 @@ public class PizzaIngredienten extends TestView implements View{
 					((int)(UI.getCurrent().getSession().getAttribute("pizza"))));
 			grid.setContainerDataSource(new BeanItemContainer<>(
 			    	Ingredient.class, pizza.getIngredienten()));
-			addComponents(pname, grid);
 			pname.setValue("Pizza: " + pizza.getName());
 			
 		}

@@ -8,6 +8,7 @@ import com.PizzaHut.services.ServiceProvider;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Grid;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 
@@ -16,6 +17,7 @@ public class PizzaView extends TestView implements View{
     private TextField filterText = new TextField();
     
 	public PizzaView() {
+		HorizontalLayout layout = new HorizontalLayout();
 		List<Pizza> pizzas = ServiceProvider.getPizzaService().getAllPizzas();
 	    grid.setContainerDataSource(new BeanItemContainer<>(
 	    	Pizza.class, pizzas));
@@ -26,7 +28,9 @@ public class PizzaView extends TestView implements View{
 	    	UI.getCurrent().getSession().setAttribute("pizza", ((Pizza)event.getSelected().iterator().next()).getId());
 	    	UI.getCurrent().getNavigator().navigateTo("PizzaIngredienten");
 	    });
-	    addComponent(grid);
+	    layout.addComponent(grid);
+	    layout.setMargin(true);
+	    addComponent(layout);
 	}
 
 }

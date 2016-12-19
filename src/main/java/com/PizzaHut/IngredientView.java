@@ -50,6 +50,8 @@ public class IngredientView extends TestView implements View{
         HorizontalLayout main = new HorizontalLayout(grid,iForm);
         main.setSpacing(true);
         main.setSizeFull();
+        main.setMargin(true);
+        toolbar.setMargin(true);
         grid.setSizeFull();
         updateList();
         addComponents(toolbar, main);

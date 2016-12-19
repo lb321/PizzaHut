@@ -38,6 +38,7 @@ public class NewView extends TestView implements View {
 		    }
 		});
 		vLayout.setSpacing(true);
+		vLayout.setMargin(true);
 		vLayout.addComponents(name, prijs, layout);
 		addComponents(vLayout);
 	}
