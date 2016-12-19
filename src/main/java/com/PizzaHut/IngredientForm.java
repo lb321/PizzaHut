@@ -6,10 +6,10 @@ import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.event.ShortcutAction.KeyCode;
 
 public class IngredientForm extends IngredientFormDesign {
-	private MyUI myUi;
+	private IngredientView myUi;
 	private Ingredient ingredient;
 	
-	public IngredientForm(MyUI myUi) {
+	public IngredientForm(IngredientView myUi) {
 		super();
 		this.myUi = myUi;
 		save.setClickShortcut(KeyCode.ENTER);
