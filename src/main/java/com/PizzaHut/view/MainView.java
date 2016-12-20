@@ -1,4 +1,4 @@
-package com.PizzaHut;
+package com.PizzaHut.view;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -12,9 +12,9 @@ import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.VerticalLayout;
 
-public class TestView extends VerticalLayout implements View{
+public class MainView extends VerticalLayout implements View{
 
-	public TestView() {
+	public MainView() {
 		HorizontalLayout layout = new HorizontalLayout();
 		MenuBar menuBar = new MenuBar();
 		MenuBar.Command mycommand = new MenuBar.Command() {
@@ -27,7 +27,6 @@ public class TestView extends VerticalLayout implements View{
 		};
 		menuBar.addItem("Home", mycommand);
 		menuBar.addItem("Ingredienten", mycommand);
-		menuBar.addItem("new", mycommand);
 		menuBar.addItem("Pizzas", mycommand);
 		menuBar.addItem("PizzaIngredienten", mycommand);
 		layout.setMargin(true);

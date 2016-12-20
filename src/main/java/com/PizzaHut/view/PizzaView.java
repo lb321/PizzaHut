@@ -1,4 +1,4 @@
-package com.PizzaHut;
+package com.PizzaHut.view;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 
-public class PizzaView extends TestView implements View{
+public class PizzaView extends MainView implements View{
     private Grid grid = new Grid();
     private TextField filterText = new TextField();
     

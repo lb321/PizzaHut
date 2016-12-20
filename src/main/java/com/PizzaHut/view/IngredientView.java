@@ -1,7 +1,8 @@
-package com.PizzaHut;
+package com.PizzaHut.view;
 
 import java.util.List;
 
+import com.PizzaHut.IngredientForm;
 import com.PizzaHut.model.Ingredient;
 import com.PizzaHut.services.ServiceProvider;
 import com.vaadin.data.util.BeanItemContainer;
@@ -17,7 +18,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.VerticalLayout;
 
-public class IngredientView extends TestView implements View{
+public class IngredientView extends MainView implements View{
     private Grid grid = new Grid();
     private TextField filterText = new TextField();
     private IngredientForm iForm;
@@ -50,11 +51,13 @@ public class IngredientView extends TestView implements View{
         HorizontalLayout main = new HorizontalLayout(grid,iForm);
         main.setSpacing(true);
         main.setSizeFull();
-        main.setMargin(true);
-        toolbar.setMargin(true);
+        //main.setMargin(true);
+        //toolbar.setMargin(true);
+        layout.setMargin(true);
         grid.setSizeFull();
         updateList();
-        addComponents(toolbar, main);
+        layout.addComponents(toolbar,main);
+        addComponent(layout);
 	}
 
     public void updateList() {

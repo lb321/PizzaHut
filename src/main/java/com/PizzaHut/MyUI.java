@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 
 import com.PizzaHut.model.Ingredient;
 import com.PizzaHut.services.ServiceProvider;
+import com.PizzaHut.view.IngredientView;
+import com.PizzaHut.view.MainView;
+import com.PizzaHut.view.PizzaIngredientenView;
+import com.PizzaHut.view.PizzaView;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.util.BeanItemContainer;
@@ -42,11 +46,10 @@ public class MyUI extends UI {
         final Panel viewContainer = new Panel();
         viewContainer.setSizeFull();
         navigator = new Navigator(this, viewContainer);
-        navigator.addView("", new TestView());
+        navigator.addView("", new MainView());
         navigator.addView("Ingredienten", new IngredientView());
-        navigator.addView("new", new NewView());
         navigator.addView("Pizzas", new PizzaView());
-        navigator.addView("PizzaIngredienten", new PizzaIngredienten());
+        navigator.addView("PizzaIngredienten", new PizzaIngredientenView());
         layout.addComponents(viewContainer);
         layout.setMargin(true);
         setContent(layout);
