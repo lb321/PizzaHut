@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 
 import com.PizzaHut.model.Ingredient;
 import com.PizzaHut.services.ServiceProvider;
+import com.PizzaHut.view.HomeView;
 import com.PizzaHut.view.IngredientView;
 import com.PizzaHut.view.MainView;
 import com.PizzaHut.view.PizzaIngredientenView;
@@ -46,7 +47,7 @@ public class MyUI extends UI {
         final Panel viewContainer = new Panel();
         viewContainer.setSizeFull();
         navigator = new Navigator(this, viewContainer);
-        navigator.addView("", new MainView());
+        navigator.addView("", new HomeView());
         navigator.addView("Ingredienten", new IngredientView());
         navigator.addView("Pizzas", new PizzaView());
         navigator.addView("PizzaIngredienten", new PizzaIngredientenView());
